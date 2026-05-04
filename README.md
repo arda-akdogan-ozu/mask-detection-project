@@ -1,45 +1,120 @@
 # Automated Face Mask Detection System using CNNs
 
 ## Project Overview
+This project detects faces from images or webcam input and classifies each face into:
+- correct_mask
+- incorrect_mask
+- no_mask
 
-This project is an automated face mask detection system developed using Convolutional Neural Networks (CNNs). The system detects human faces from images or real-time camera input and classifies each detected face into one of three categories:
-
-1. Correct Mask
-2. Incorrect Mask
-3. No Mask
-
-In addition to classification, the system also counts the number of detected faces in each category.
+The system also counts how many people are in each category in real time.
 
 ---
 
-## Project Goal
+## Installation
 
-The goal of this project is not only to detect whether a person is wearing a mask, but also to determine whether the mask is worn correctly.
+Clone the project:
+git clone https://github.com/arda-akdogan-ozu/mask-detection-project.git
 
-Classes:
+Go into the folder:
+cd mask-detection-project
 
-- `correct_mask`: mask properly covers nose and mouth  
-- `incorrect_mask`: mask worn incorrectly (e.g., nose exposed)  
-- `no_mask`: no mask  
-
----
-
-## Features
-
-- CNN-based image classification
-- 3-class mask detection
-- Real-time webcam detection
-- Face detection using OpenCV
-- Bounding box + label + confidence
-- Real-time counting system
-- Training & validation accuracy analysis
+Install dependencies:
+python3 -m pip install -r requirements.txt
 
 ---
 
-## Dataset Structure
+## Dataset Setup
 
-```text
-dataset/
-├── correct_mask/
-├── incorrect_mask/
-└── no_mask/
+Create dataset folders:
+mkdir dataset
+mkdir dataset/correct_mask
+mkdir dataset/incorrect_mask
+mkdir dataset/no_mask
+
+Download a dataset from Kaggle (search):
+Face mask detector mask not mask incorrect mask
+
+Place images like this:
+
+with_mask images → dataset/correct_mask  
+incorrect_mask images → dataset/incorrect_mask  
+without_mask images → dataset/no_mask  
+
+---
+
+## Train Model
+
+cd src
+python3 train.py
+
+Model will be saved to:
+model/mask_model.h5
+
+---
+
+## Test Model
+
+cd src
+python3 test.py
+
+---
+
+## Predict Single Image
+
+python3 predict_image.py ../dataset/correct_mask/example.jpg
+
+---
+
+## Real-Time Detection
+
+cd src
+python3 realtime_detection.py
+
+Press q to exit camera.
+
+---
+
+## Output
+
+Correct Mask: X  
+Incorrect Mask: Y  
+No Mask: Z  
+Total Faces: N  
+
+---
+
+## Technologies
+
+- Python
+- TensorFlow / Keras
+- OpenCV
+- NumPy
+- Matplotlib
+
+---
+
+## Current Status
+
+System is working:
+- Training works
+- Testing works
+- Image prediction works
+- Real-time detection works
+- Counting works
+
+---
+
+## Future Work
+
+- Confusion matrix
+- Precision / Recall / F1
+- MobileNetV2
+- FPS measurement
+- Better face detection
+
+---
+
+## Notes
+
+Dataset is not included in repo.
+Each user must download dataset manually.
