@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Dataset files
+dataset/
+
+# Trained models
+model/*.h5
+model/*.keras
+
+# Generated figures
+*.png
+*.jpg
+*.jpeg
